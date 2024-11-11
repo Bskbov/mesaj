@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgi Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .info-content {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 id="title">Başlık</h1>
+        <div class="info-label">Açıklama:</div>
+        <div id="description" class="info-content"></div>
+        <div class="info-label">İletişim:</div>
+        <div id="contact" class="info-content"></div>
+    </div>
+
+    <script>
+        // URL parametrelerini al
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Parametreleri sayfa elemanlarına yerleştir
+        document.getElementById('title').textContent = urlParams.get('title') || 'Başlık';
+        document.getElementById('description').textContent = urlParams.get('description') || '';
+        document.getElementById('contact').textContent = urlParams.get('contact') || '';
+    </script>
+</body>
+</html>
